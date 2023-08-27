@@ -3,6 +3,8 @@ import mysql from "mysql";
 
 const app= Express (); // creating a variable to hold express function
 
+app.use(Express.json())
+
 //connecting to mysql
 
 const db= mysql.createConnection(
@@ -19,7 +21,7 @@ app.get ("/",(req,res)=>{
     res.json("CONNECTED TO BACKED END")
 })
 
-// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '2000'
+// get all books
 app.get ("/books",(req,res)=>{
     const books="SELECT * FROM books"
     db.query(books,(err,data)=>{
@@ -27,6 +29,22 @@ app.get ("/books",(req,res)=>{
         return res.json(data)
 
     })
+})
+
+app.post ("/books",(req,res)=>{
+    const books="INSERT INTO books (`title`,`desc`,`cover`) VALUE (?)"
+    const values =[
+        req.body.title,
+        req.body.desc,
+        req.body.cover
+    ]
+    
+    db.query(books,[values],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json("data posted successfully")
+
+    })
+
 })
 
 app.listen(8800,()=>{
