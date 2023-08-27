@@ -1,9 +1,11 @@
 import Express  from "express";
 import mysql from "mysql";
+import cors from "cors"
 
 const app= Express (); // creating a variable to hold express function
 
 app.use(Express.json())
+app.use(cors())
 
 //connecting to mysql
 
