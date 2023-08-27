@@ -10,7 +10,7 @@ function Home() {
         const fetchAllBooks= async ()=>{
             try{
                 const res= await Axios.get("http://localhost:8800/books")
-                console.log(res)
+                setBook(res.data)
             }
             catch (err){
                 console.log(err)
@@ -19,7 +19,18 @@ function Home() {
         fetchAllBooks();
     })
   return (
-    <div>Home</div>
+    <div>
+        <h1>Pato's library</h1>
+        <div className="books">
+        {books.map((book) => (
+          <div key={book.id} className="book">
+            <img src={book.cover} alt="" />
+            <h2>{book.title}</h2>
+            <p>{book.desc}</p>
+            </div>))}
+           
+        </div>
+    </div>
   )
 }
 
