@@ -15,6 +15,10 @@ const db= mysql.createConnection(
     }
 )
 
+app.get ("/",(req,res)=>{
+    res.json("CONNECTED TO BACKED END")
+})
+
 app.listen(8800,()=>{
     console.log("connection ok continue")
 })
