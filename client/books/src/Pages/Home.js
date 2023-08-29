@@ -28,9 +28,9 @@ function Home() {
             <img src={book.cover} alt="" />
             <h2>{book.title}</h2>
             <p>{book.desc}</p>
-            <button><Link to="/Add">Add a book</Link></button>
+           
             </div>))}
-          
+            <button><Link to="/Add">Add a book</Link></button>
         </div>
     </div>
   )
