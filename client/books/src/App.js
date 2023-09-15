@@ -4,17 +4,20 @@ import {
 import Home from "./Pages/Home";
 import Add from "./Pages/Add";
 import Update from "./Pages/Update";
+import './App.css';
 
 
 function App() {
   return (
-  <BrowserRouter>
-  <Routes>
+    <div className="App">
+  <BrowserRouter >
+  <Routes className='app'>
     <Route path="/" element={<Home/>}/>
     <Route path="/add" element={<Add/>}/>
     <Route path="/update" element={<Update/>}/>
   </Routes>
   </BrowserRouter>
+  </div>
   );
 }
 

@@ -3,6 +3,8 @@ import{Link} from 'react-router-dom'
 import Axios from 'axios'
 
 
+
+
 function Home() {
     const [books, setBook]= useState([])
 
@@ -28,10 +30,15 @@ function Home() {
             <img src={book.cover} alt="" />
             <h2>{book.title}</h2>
             <p>{book.desc}</p>
+
+          <button className='delete'>delete</button>
+          <button className='update'>update</button>
+
            
             </div>))}
-            <button><Link to="/Add">Add a book</Link></button>
+           
         </div>
+        <button><Link to="/Add">Add a book</Link></button>
     </div>
   )
 }
