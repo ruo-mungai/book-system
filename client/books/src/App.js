@@ -1,23 +1,20 @@
-import {
-  BrowserRouter,Routes,Route
-} from "react-router-dom"
-import Home from "./Pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Add from "./Pages/Add";
+import Books from "./Pages/Home";
 import Update from "./Pages/Update";
-import './App.css';
-
+import "./Style.css"
 
 function App() {
   return (
-    <div className="App">
-  <BrowserRouter >
-  <Routes className='app'>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/add" element={<Add/>}/>
-    <Route path="/update" element={<Update/>}/>
-  </Routes>
-  </BrowserRouter>
-  </div>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Books />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/update/:id" element={<Update />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
